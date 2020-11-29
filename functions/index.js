@@ -3,7 +3,7 @@ const functions = require('firebase-functions');
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-exports.qualify = functions.https.onRequest('/loan', (request, response) => {
+exports.qualify = functions.https.onRequest((request, response) => {
   ({ purchasePrice, yearlyIncome, creditScore } = request.body);
 
   purchasePrice = parseInt(purchasePrice);
@@ -17,9 +17,15 @@ exports.qualify = functions.https.onRequest('/loan', (request, response) => {
         .send({ msg: 'Purchase price is greater than 1000000' });
     }
     if (creditScore > 600 && purchasePrice <= yearlyIncome / 5) {
-      response.status(200).send({ qualified: true, msg: 'Congrats! ...' });
+      response.status(200).send({
+        qualified: true,
+      });
     } else {
-      response.status(200).send({ qualified: false, msg: 'Sorry ...' });
+      response.status(200).send({
+        qualified: false,
+        msg:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus placeat laudantium officia, nihil, pariatur eos dolore hic obcaecati eligendi eum, praesentium deserunt doloribus saepe similique accusantium tempore nobis et iusto.',
+      });
     }
   }
   response.set('Access-Control-Allow-Origin', '*');

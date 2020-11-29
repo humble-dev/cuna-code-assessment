@@ -37,7 +37,9 @@ const LoanForm = () => {
       'https://us-central1-autoloan-24e0d.cloudfunctions.net/qualify';
 
     postData(cloudUrl, values)
-      .then(r => r.json().then(data => ({ status: r.status, body: data })))
+      .then(response =>
+        response.json().then(data => ({ status: response.status, body: data }))
+      )
       .then(({ status, body }) => {
         if (status === 200) {
           history.push({ pathname: '/result', body });
