@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^4.5.3",
     "firebase": "^8.1.1",
+    "firebase-admin": "^9.4.1",
     "formik": "^2.2.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4",
     "yup": "^0.31.0"
@@ -19,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && firebase deploy",
+    "emulate": "yarn build && firebase emulators:start"
   },
   "eslintConfig": {
     "extends": [

@@ -1,29 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './css/style.css'
-import './css/bootstrap.min.css'
-import LoanForm from './components/LoanForm'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/style.css';
+import './css/bootstrap.min.css';
+
+import LoanFormPage from './pages/LoanForm.Page';
 
 function App() {
-  return (
-    <div style={{ height: '100vh' }} className='pt-5'>
-      <div className='container'>
-        <div className='jumbotron pb-5 bg-primary'>
-          <div className='mx-auto px-md-5'>
-            <h1 className='h2 mb-3 text-white'>Qualify for a loan</h1>
-            <p className='lead text-white'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptate, omnis sapiente cupiditate ad assumenda, libero
-              consequatur ex labore sunt corrupti nesciunt incidunt. Voluptatum,
-              ratione?
-            </p>
-          </div>
-        </div>
-        <div className='mx-auto' style={{ maxWidth: 650 }}>
-          <LoanForm />
-        </div>
-      </div>
-    </div>
-  )
+  return <LoanFormPage />;
 }
 
-export default App
+export default App;

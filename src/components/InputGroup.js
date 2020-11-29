@@ -2,7 +2,15 @@ import React from 'react'
 import { Field } from 'formik'
 
 const InputGroup = props => {
-  const { name, label, inputType, error, touched, placeholder } = props
+  const {
+    name,
+    label,
+    inputType,
+    error,
+    touched,
+    placeholder,
+    helperText,
+  } = props
 
   const handleKeyDown = evt => {
     if (evt.key === 'e') evt.preventDefault()
@@ -23,6 +31,7 @@ const InputGroup = props => {
         onKeyDown={inputType === 'number' ? evt => handleKeyDown(evt) : null}
         placeholder={placeholder}
       />
+      <small className='ml-auto form-text text-dark'>{helperText}</small>
     </div>
   )
 }
