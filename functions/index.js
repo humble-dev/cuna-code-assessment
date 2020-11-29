@@ -3,7 +3,7 @@ const functions = require('firebase-functions');
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-exports.qualify = functions.https.onRequest((request, response) => {
+exports.qualify = functions.https.onRequest('/loan', (request, response) => {
   ({ purchasePrice, yearlyIncome, creditScore } = request.body);
 
   purchasePrice = parseInt(purchasePrice);
@@ -12,7 +12,9 @@ exports.qualify = functions.https.onRequest((request, response) => {
 
   function qualify() {
     if (purchasePrice > 1000000) {
-      response.status(400).send({ msg: 'Purchase Price Too High' });
+      response
+        .status(400)
+        .send({ msg: 'Purchase price is greater than 1000000' });
     }
     if (creditScore > 600 && purchasePrice <= yearlyIncome / 5) {
       response.status(200).send({ qualified: true, msg: 'Congrats! ...' });

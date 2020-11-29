@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
 import InputGroup from './InputGroup';
 
@@ -16,7 +17,8 @@ const applicationSchema = Yup.object().shape({
 });
 
 const LoanForm = () => {
-  // Example POST method implementation:
+  const history = useHistory();
+
   async function postData(url, data) {
     const response = await fetch(url, {
       method: 'POST',
@@ -30,13 +32,15 @@ const LoanForm = () => {
   }
 
   const handleSubmit = async values => {
-    postData(cloud, values)
+    const localUrl = 'http://localhost:5001/autoloan-24e0d/us-central1/qualify';
+    const cloudUrl =
+      'https://us-central1-autoloan-24e0d.cloudfunctions.net/qualify';
+
+    postData(cloudUrl, values)
       .then(r => r.json().then(data => ({ status: r.status, body: data })))
       .then(({ status, body }) => {
         if (status === 200) {
-          body.qualified
-            ? console.log('To qualified')
-            : console.log('To disqual');
+          history.push({ pathname: '/result', body });
         }
       })
       .catch(err => console.log(err));

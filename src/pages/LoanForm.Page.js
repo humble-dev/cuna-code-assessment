@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import LoanForm from '../components/LoanForm'
+import LoanForm from '../components/LoanForm';
 
 const LoanFormPage = () => {
   return (
-    <div style={{ height: '100vh' }} className='pt-5'>
+    <div className='pt-5'>
       <div className='container'>
         <div className='jumbotron pb-5 bg-primary'>
           <div className='mx-auto px-md-5'>
@@ -22,7 +22,7 @@ const LoanFormPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoanFormPage
+export default LoanFormPage;
