@@ -15,7 +15,7 @@ If you are using npm, run `npm run build` and then `firebase emulators:start`\
 This will start the Firebase emulator that serves the project and it's API.\
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-## Design Docs
+## Design Notes
 
 Dependencies used
 
