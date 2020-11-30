@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import InputGroup from './InputGroup';
 
+// Something that could be improved here: The fields where the input is a currency - maybe there should be a way to compute entries that have commas, dollar signs, or decimals. The current schema filters out any symbols that aren't numbers however, which is already effective.
 const validationSchema = Yup.object().shape({
   purchasePrice: Yup.string().required('Required'),
   autoMake: Yup.string().required('Required'),
@@ -33,8 +34,6 @@ const LoanForm = () => {
 
   const handleSubmit = async values => {
     const localUrl = 'http://localhost:5001/autoloan-24e0d/us-central1/qualify';
-    // const cloudUrl =
-    //   'https://us-central1-autoloan-24e0d.cloudfunctions.net/qualify';
 
     postData(localUrl, values)
       .then(response =>
@@ -45,6 +44,10 @@ const LoanForm = () => {
           history.push({ pathname: '/result', body });
         }
       })
+      // Error handling:
+      // In this instance, the error would be a (400 Bad Request)
+      // In the API there is a message that describes the client's error.
+      // A way to handle that would be to display an alert showing the message, and offering a button that would refresh the page (and refresh the connection to the API)
       .catch(err => console.log(err));
   };
 

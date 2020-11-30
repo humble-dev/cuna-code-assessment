@@ -5,9 +5,7 @@ const DisqualifiedPage = ({ message }) => {
     <div className='container mt-5 pt-5'>
       <h1 className='h2 mb-4'>Sorry, you do not qualify at this time.</h1>
       <p className='lead' style={{ maxWidth: 640 }}>
-        {message} Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        Recusandae quas illo ea. Suscipit voluptate dolor veritatis perferendis
-        commodi repudiandae non, exercitationem explicabo dolorem quia?
+        {message}
       </p>
 
       <h2 className='h4 mb-3 mt-5'>Get In Touch With Us</h2>

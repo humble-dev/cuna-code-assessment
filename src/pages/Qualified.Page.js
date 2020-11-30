@@ -2,6 +2,8 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+// I think that eventually it would be useful to refactor the form out the view in order to maintain a separation of concerns.
+// Also, this form has no functionality, but given time I would have implemented the Firebase Auth library since it is the most convenient.
 const QualifiedPage = () => {
   const validationSchema = Yup.object().shape({
     username: Yup.string().email().required('Required'),

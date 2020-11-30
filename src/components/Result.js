@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DisqualifiedPage from '../pages/Disqualified.Page';
 import QualifiedPage from '../pages/Qualified.Page';
 
+// 'Result' is analogous to a Y-branch that splits off to the 'Qualified' or 'Disqualified' views.
 const Result = props => {
   const body = props.location.body;
 

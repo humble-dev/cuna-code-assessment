@@ -1,5 +1,5 @@
-import React from 'react'
-import { Field } from 'formik'
+import React from 'react';
+import { Field } from 'formik';
 
 const InputGroup = props => {
   const {
@@ -10,11 +10,12 @@ const InputGroup = props => {
     touched,
     placeholder,
     helperText,
-  } = props
+  } = props;
 
+  // Remove 'e' character which is normally valid in a number field.
   const handleKeyDown = evt => {
-    if (evt.key === 'e') evt.preventDefault()
-  }
+    if (evt.key === 'e') evt.preventDefault();
+  };
 
   return (
     <div className='form-group'>
@@ -31,9 +32,8 @@ const InputGroup = props => {
         onKeyDown={inputType === 'number' ? evt => handleKeyDown(evt) : null}
         placeholder={placeholder}
       />
-      <small className='ml-auto form-text text-dark'>{helperText}</small>
     </div>
-  )
-}
+  );
+};
 
-export default InputGroup
+export default InputGroup;

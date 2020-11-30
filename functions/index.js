@@ -21,13 +21,7 @@ exports.qualify = functions.https.onRequest((request, response) => {
       response.status(200).send({
         qualified: false,
         msg:
-          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus placeat laudantium officia, nihil, pariatur eos dolore hic obcaecati eligendi eum, praesentium deserunt doloribus saepe similique accusantium tempore nobis et iusto.',
-      });
-      console.log({ creditScore, passCredit: creditScore > 600 });
-      console.log({
-        purchasePrice,
-        yearlyIncome,
-        passPurchase: purchasePrice <= yearlyIncome / 5,
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus placeat laudantium officia, nihil, pariatur eos dolore hic obcaecati eligendi eum, praesentium deserunt doloribus saepe similique accusantium tempore nobis et iusto. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae quas illo ea. Suscipit voluptate dolor veritatis perferendis commodi repudiandae non, exercitationem explicabo dolorem quia?',
       });
     }
   }
