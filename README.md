@@ -1,4 +1,4 @@
-# Code assessment: Auto Loan
+# Cuna Code Assessment
 
 ## To Start
 
