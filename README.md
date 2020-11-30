@@ -1,70 +1,37 @@
 # Code assessment: Auto Loan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## To Start
 
-## Available Scripts
+In the project directory, install dependencies by running:
 
-In the project directory, you can run:
+### `yarn` or `npm install`
 
-### `yarn start`
+Once the dependencies are installed you can run:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `yarn emulate`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+If you are using npm, run `npm run build` and then `firebase emulators:start`\\
 
-### `yarn test`
+This will start the Firebase emulator that serves the project and it's API.\
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Design Docs
 
-### `yarn build`
+Dependencies used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- I used `create-react-app` to get a React project up-and-running.
+- At first, I brought in the **Google Firebase library** thinking that I would have to handle user account creation (Firebase has a great library for Auth as well as a NoSQL database). I stuck with it because the Functions library made creating a REST API easy.
+- **Formik** is a useful tool for forms and validation, **Yup** is an optionaly dependency that allowed me to make a validation schema and to display validation errors.
+- **Bootstrap** is a quick way to make a UI. I added a swatch from _bootswatch.com_ so it would not be so boring.
+- _React Router_ was needed for routing to the different views.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Structure:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- At the top-level in `App.js,` I placed the styles and implemented routing. This makes the most sense.
+- In the `LoanFormPage`, I created the page layer that contains the markup, and had to refactor the form component to make it easier to read.
+- In the `LoanForm` component, it is comprised of the Formik ‘boiler-plate’ using a validation schema (easiest to implement).
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* I created the `InputGroup` component to reduce repitition. I realized that there is a Formik specific way to make designer components, and that may have a performance benefit. The `InputGroup `displays errors well, and handles key press events.
+* After the user submits validated data and the API request is succesful, the pages routes over to a component called Result.js. The status of _`qualified`_ is delivered via props, and determines which view is shown: either `Qualified` or `Disqualified`. This logic was effective in my opinion and quick to implement.
+* If the user is _disqualified_, they see the appropriate markup and the message from the API.
+* If _Qualified_, they are delivered to an account sign up page consisting of a Formik form again with inputs that validate according to a schema, and an alert tells them if they have successfully created an account.
