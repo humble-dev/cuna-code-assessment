@@ -1,8 +1,5 @@
 const functions = require('firebase-functions');
 
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
-
 exports.qualify = functions.https.onRequest((request, response) => {
   ({ purchasePrice, yearlyIncome, creditScore } = request.body);
 
@@ -25,6 +22,12 @@ exports.qualify = functions.https.onRequest((request, response) => {
         qualified: false,
         msg:
           'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus placeat laudantium officia, nihil, pariatur eos dolore hic obcaecati eligendi eum, praesentium deserunt doloribus saepe similique accusantium tempore nobis et iusto.',
+      });
+      console.log({ creditScore, passCredit: creditScore > 600 });
+      console.log({
+        purchasePrice,
+        yearlyIncome,
+        passPurchase: purchasePrice <= yearlyIncome / 5,
       });
     }
   }

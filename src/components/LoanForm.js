@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import InputGroup from './InputGroup';
 
-const applicationSchema = Yup.object().shape({
+const validationSchema = Yup.object().shape({
   purchasePrice: Yup.string().required('Required'),
   autoMake: Yup.string().required('Required'),
   autoModel: Yup.string().required('Required'),
@@ -33,10 +33,10 @@ const LoanForm = () => {
 
   const handleSubmit = async values => {
     const localUrl = 'http://localhost:5001/autoloan-24e0d/us-central1/qualify';
-    const cloudUrl =
-      'https://us-central1-autoloan-24e0d.cloudfunctions.net/qualify';
+    // const cloudUrl =
+    //   'https://us-central1-autoloan-24e0d.cloudfunctions.net/qualify';
 
-    postData(cloudUrl, values)
+    postData(localUrl, values)
       .then(response =>
         response.json().then(data => ({ status: response.status, body: data }))
       )
@@ -57,7 +57,7 @@ const LoanForm = () => {
         yearlyIncome: '50000',
         creditScore: '680',
       }}
-      validationSchema={applicationSchema}
+      validationSchema={validationSchema}
       onSubmit={values => {
         handleSubmit(values);
       }}>

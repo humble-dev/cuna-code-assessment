@@ -11,16 +11,12 @@ const QualifiedPage = () => {
         'Must contain at least 1 number and 1 symbol'
       )
       .required('Required')
-      .min(8, 'Must have at least 8 characters'),
+      .min(8, 'Must contain at least 8 characters'),
     verify: Yup.string()
       .required('Required')
-      .test(
-        'passwords-match',
-        'Passwords must match ya fool',
-        function (value) {
-          return this.parent.password === value;
-        }
-      ),
+      .test('passwords-match', 'Passwords must match', function (value) {
+        return this.parent.password === value;
+      }),
   });
 
   return (
@@ -37,6 +33,7 @@ const QualifiedPage = () => {
           }}
           onSubmit={values => {
             console.log({ values });
+            alert('Account successfully created!');
           }}
           validationSchema={validationSchema}>
           {({ errors, touched }) => (

@@ -8,7 +8,7 @@ const LoanFormPage = () => {
       <div className='container'>
         <div className='jumbotron pb-5 bg-primary'>
           <div className='mx-auto px-md-5'>
-            <h1 className='h2 mb-3 text-white'>Qualify for a loan</h1>
+            <h1 className='h2 mb-3 text-white'>Qualify For A Loan</h1>
             <p className='lead text-white'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptate, omnis sapiente cupiditate ad assumenda, libero
