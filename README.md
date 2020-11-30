@@ -34,4 +34,4 @@ Structure:
 * I created the `InputGroup` component to reduce repitition. I realized that there is a Formik specific way to make designer components, and that may have a performance benefit. The `InputGroup `displays errors well, and handles key press events.
 * After the user submits validated data and the API request is succesful, the pages routes over to a component called Result.js. The status of _`qualified`_ is delivered via props, and determines which view is shown: either `Qualified` or `Disqualified`. This logic was effective in my opinion and quick to implement.
 * If the user is _disqualified_, they see the appropriate markup and the message from the API.
-* If _Qualified_, they are delivered to an account sign up page consisting of a Formik form again with inputs that validate according to a schema, and an alert tells them if they have successfully created an account.
+* If _qualified_, they are delivered to an account sign up page consisting of a Formik form again with inputs that validate according to a schema, and an alert tells them if they have successfully created an account.
